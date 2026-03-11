@@ -18,7 +18,7 @@ class AdminController extends Controller
         $subcategories = Category::whereNotNull('parent_id')->count();
         $total_revenue = OrderItem::where('order_status', '!=', 'cancelled')->sum('total_amount');
         $total_deliveryboy = User::where('role','=','delivery_boy')->count();
-        $login_logs    = LoginLog::with('user')->whereRelation('user', 'role', 'customer')->orWhereRelation('user', 'role', 'vendor')->latest()->paginate(10);
+        $login_logs = LoginLog::with('user')->whereRelation('user', 'role', '!=', 'admin')->latest()->paginate(15);
 
         return view('admin.index', compact('customers', 'vendors', 'categories', 'subcategories', 'login_logs','total_deliveryboy','total_revenue'));
     }

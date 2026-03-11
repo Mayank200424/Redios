@@ -192,8 +192,6 @@
                                         </a>
                                    </div>
 
-                                  
-
                                    {{-- Total Category --}}
                                    <div class="col-md-6">
                                         <a href="{{ route('admin.category') }}" class="card-link">
