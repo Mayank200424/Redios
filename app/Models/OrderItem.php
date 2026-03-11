@@ -28,4 +28,9 @@ class OrderItem extends Model
         return $this->belongsTo(User::class, 'customer_id');
     }
 
+    public function orderAssigned()
+    {
+        return $this->hasOne(OrderAssigned::class, 'order_item_id');
+    }
+
 }

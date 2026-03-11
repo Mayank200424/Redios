@@ -374,7 +374,7 @@
 
                               @foreach($deliveryBoys as $boy)
                                    <option value="{{ $boy->id }}"
-                                        {{ $order->delivery_boy_id == $boy->id ? 'selected' : '' }}>
+                                        {{ $order->orderAssigned && $order->orderAssigned->delivery_boy_id == $boy->id ? 'selected' : '' }}>
                                         {{ $boy->name }}
                                    </option>
                               @endforeach

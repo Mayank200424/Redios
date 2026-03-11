@@ -29,7 +29,7 @@ class VendorController extends Controller
         $total_orders = OrderItem::with('users', 'order', 'product', 'vendor')->where('vendor_id', Auth()->id())->count();
         $total_delivered = OrderItem::where('vendor_id', Auth()->id())->where('order_status', 'delivered')->count();
         $total_cancelled = OrderItem::where('vendor_id', Auth()->id())->where('order_status', 'cancelled')->count();
-        $orders = OrderItem::with('users', 'order', 'product', 'vendor')->where('vendor_id', Auth()->id())->latest('created_at')->paginate(4);
+        $orders = OrderItem::with('users', 'order', 'product', 'vendor', 'orderAssigned')->where('vendor_id', Auth()->id())->latest('created_at')->paginate(4);
         $deliveryBoys = User::where('role','delivery_boy')->get();
         return view('vendor.orders-list', compact('orders', 'total_orders', 'total_delivered', 'total_cancelled','deliveryBoys'));
     }

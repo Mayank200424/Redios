@@ -16,7 +16,7 @@ class OrderController extends Controller
         $total_orders = OrderItem::count();
         $total_cancelOrders = OrderItem::where('order_status','cancelled')->count();
         $total_delivered = OrderItem::where('order_status','delivered')->count();
-        $orders = OrderItem::with('users', 'order', 'product')->latest()->paginate(4);
+        $orders = OrderItem::with('users', 'order', 'product')->latest()->paginate(5);
         return view('admin.orders-list', compact('orders', 'total_orders','total_cancelOrders','total_delivered'));
     }
     public function orderDetails($id)
