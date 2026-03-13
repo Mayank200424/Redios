@@ -72,7 +72,7 @@ class ProductController extends Controller
         return view('vendor.product-detail', compact('product', 'categories'));
 
     }
-
+    
     public function update(ProductRequest $request, $id)
     {
         $product = Product::findOrFail($id);
@@ -129,8 +129,7 @@ class ProductController extends Controller
         $search = $request->get('search');
 
         $query = Product::with('category')->where('vendor_id', Auth()->id())->where('name', 'like', "%{$search}%")->paginate(3);
-        ;
-
+        
         return response()->json([
             'data' => $query->items(),
             'pagination' => $query->links()->toHtml()
