@@ -327,7 +327,7 @@ class CustomerController extends Controller
         $order->total_amount = $grandTotal;
 
         $order->save();
-        
+
         foreach ($cartItems as $item) {
 
             $itemSubtotal = $item->product->final_price * $item->quantity;

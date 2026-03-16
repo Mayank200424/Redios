@@ -134,7 +134,6 @@
                                                        </span>
                                                   </div>
                                              </form>
-
                                         </div>
                                         <a href="{{ route('category.add') }}" class="btn btn-sm btn-primary">
                                              Add Category
