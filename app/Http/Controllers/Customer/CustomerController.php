@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Customer;
 
 use App\Http\Controllers\Controller;
+use App\Mail\InvoiceMail;
 use App\Mail\PaymentRefund;
 use App\Models\Address;
 use App\Models\Cart;
@@ -15,6 +16,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Razorpay\Api\Api;
+
 
 
 class CustomerController extends Controller
